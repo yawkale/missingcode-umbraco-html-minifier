@@ -1,0 +1,25 @@
+﻿@using Velstand.Constants
+@using Velstand.Models
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent current = CurrentPage;
+    IPublishedContent holder = current.VBlogHolderTop();
+    var contents = holder.VHasContents().VOrderByRelease();
+    var categories = ((IPublishedContent)CurrentPage).VCategories();
+}
+
+<ul class="v-widget collection">
+    <li class="collection-header"><h4><span class="mdi-action-label"></span> @Umbraco.GetDictionaryValue("Category")</h4></li>
+    @foreach (var category in categories)
+    {
+        var count = contents.Where(w => Array.IndexOf(w.GetPropertyValue<string>("category").Split(','), category.Id.ToString()) != -1).Count();
+
+        if (count == 0) { continue; }
+        <li>
+            <a href="@holder.VCategoryUrl(category.Id)" class="collection-item">
+                @category.Name
+                <span class="badge">@count</span>
+            </a>
+        </li>
+    }
+</ul>

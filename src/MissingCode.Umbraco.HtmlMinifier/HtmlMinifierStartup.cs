@@ -6,21 +6,10 @@ using WebMarkupMin.Core;
 
 namespace MissingCode.Umbraco.HtmlMinifier
 {
-    public class HtmlMinifierStartup : IApplicationEventHandler
+    public class HtmlMinifierStartup : ApplicationEventHandler
     {
-        public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+        protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
-            
-        }
-
-        public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
-        {
-            
-        }
-
-        public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
-        {
-            
             var htmlMinificationSettings = HtmlMinificationManager.Current.MinificationSettings;
 
             if (!PluginSettings.RemoveAttributeQuotes)
@@ -33,6 +22,10 @@ namespace MissingCode.Umbraco.HtmlMinifier
             //filters.Add(new CompressContentAttribute());
             filters.Add(new MinifyHtmlAttribute());
             //filters.Add(new MinifyXmlAttribute());
+
+            base.ApplicationStarting(umbracoApplication, applicationContext);
         }
+
+        
     }
 }

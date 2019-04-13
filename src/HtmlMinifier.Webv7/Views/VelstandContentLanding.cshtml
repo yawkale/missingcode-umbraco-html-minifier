@@ -1,0 +1,32 @@
+﻿@using Velstand.Helpers
+@using Velstand.Models
+@using Velstand.Utilities
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "VelstandWrapper.cshtml";
+    IPublishedContent current = CurrentPage;
+}
+@section VelstandHead
+{
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css" />
+}
+@section VelstandLanding
+{
+    @CurrentPage.GetGridHtml("grid", "velstandgridlanding")
+		
+	<article class="v-single-post v-post collection">
+		<div class="collection-item">
+			@* disqus *@
+			@Html.Partial("VelstandDisqus")
+		</div>
+			
+		<div class="collection-item">
+			<span class="v-post-title">@Umbraco.Field("title")</span>&nbsp;&nbsp;
+			<span class="v-post-date mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>&nbsp;&nbsp;
+			<span class="v-post-category mdi-action-label">@Html.CategoryWithLink(current, "category")</span>
+		</div>
+	</article>
+}
+@section VelstandBody
+{
+}

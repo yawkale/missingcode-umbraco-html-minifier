@@ -1,0 +1,24 @@
+﻿@using Velstand.Models
+@using Velstand.Constants
+@using Velstand.Helpers
+@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+    IPublishedContent current = CurrentPage;
+    IPublishedContent content = current.VBlogHolderTop();
+}
+<form id="searchForm" class="v-widget" action="@content.Url" method="get">
+	<div class="v-search-form row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">search</i>
+            <input id="search" type="text" name="@VelstandRequest.Text" placeholder="@Umbraco.GetDictionaryValue(" SearchPlaceHolder")" class="validate" />
+            <label for="search">@Umbraco.GetDictionaryValue("SearchPlaceHolder")</label>
+            <script>
+                $(function () {
+                    $('#search').change(function () {
+                        $('#searchForm').submit();
+                    });
+                });
+            </script>
+        </div>
+	</div>
+</form>
