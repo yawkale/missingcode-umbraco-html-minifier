@@ -1,0 +1,49 @@
+﻿@using Velstand.Helpers
+@using Velstand.Models
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "VelstandWrapper.cshtml";
+    IPublishedContent current = CurrentPage;
+    var search = new SearchEngineModel(current, Request);
+}
+@section VelstandHead
+{
+}
+
+@section VelstandBody
+{
+    <div class="col s12">
+		@Html.Partial("VelstandBreadCrumb")
+	</div>
+    <section class="v-main-content col s12 m8">
+        @foreach (var post in search.Contents())
+        {
+            <article class="v-post collection">
+                <div class="v-post-eyecatch left">
+					<a href="@post.Url">@Html.Crop(post, "eyecatch", "blogEyecatch")</a>
+                </div>
+                <div class="v-post-description">
+                    <h2><a href="@post.Url" class="v-post-title text-with-light">@Umbraco.Field(post, "title")</a></h2>
+                    <hr />
+                    <p class="v-post-info">
+                        <span class="mdi-notification-event-note"> @Html.DictionalyDateFormat(current, "releaseDate")</span>
+                        &nbsp;&nbsp;
+                        <span class="v-post-category mdi-action-label"> @Html.CategoryWithLink(post, "category")</span>
+                    </p>
+                    <a class="v-link-button hide-on-small-only" href="@post.Url">
+                        <span class="glyphicon glyphicon-check"></span> @Umbraco.GetDictionaryValue("HolderpageMoreButton")
+                    </a>
+                </div>
+            </article>
+        }
+        @* Pagination *@
+        <ul class="pagination">
+            @search.Html.Prev("<i class=\"mdi-navigation-chevron-left\"></i>")
+            @search.Html.Pagination()
+            @search.Html.Next("<i class=\"mdi-navigation-chevron-right\"></i>")
+        </ul>
+    </section>
+    <section class="v-sub-content col s12 m4">
+        @Html.Partial("VelstandSidebar")
+    </section>
+}
