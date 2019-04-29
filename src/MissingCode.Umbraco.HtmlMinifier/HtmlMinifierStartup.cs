@@ -1,14 +1,23 @@
-﻿using System.Web.Mvc;
-using Umbraco.Core;
+﻿using Umbraco.Core;
+using Umbraco.Core.Composing;
 using WebMarkupMin.AspNet4.Common;
 using WebMarkupMin.AspNet4.Mvc;
 using WebMarkupMin.Core;
+using System.Web.Mvc;
 
 namespace MissingCode.Umbraco.HtmlMinifier
 {
-    public class HtmlMinifierStartup : ApplicationEventHandler
+    [RuntimeLevel(MinLevel = RuntimeLevel.Run)]
+    public class MyComposer : IUserComposer
     {
-        protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+        public void Compose(Composition composition)
+        {
+            composition.Components().Append<HtmlMinifierComponent>();
+        }
+    }
+    public class HtmlMinifierComponent : IComponent
+    {
+        public void Initialize()
         {
             var htmlMinificationSettings = HtmlMinificationManager.Current.MinificationSettings;
 
@@ -22,9 +31,12 @@ namespace MissingCode.Umbraco.HtmlMinifier
             //filters.Add(new CompressContentAttribute());
             filters.Add(new MinifyHtmlAttribute());
             //filters.Add(new MinifyXmlAttribute());
-
-            base.ApplicationStarting(umbracoApplication, applicationContext);
         }
+
+        public void Terminate()
+        {
+            
+        }       
 
         
     }
