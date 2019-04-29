@@ -166,8 +166,8 @@
     <Reference Include="WebMarkupMin.AspNet4.Mvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
       <HintPath>..\packages\WebMarkupMin.AspNet4.Mvc.2.5.0\lib\net45\WebMarkupMin.AspNet4.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="WebMarkupMin.Core, Version=2.5.7.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebMarkupMin.Core.2.5.7\lib\net45\WebMarkupMin.Core.dll</HintPath>
+    <Reference Include="WebMarkupMin.Core, Version=2.5.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.Core.2.5.0\lib\net45\WebMarkupMin.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
