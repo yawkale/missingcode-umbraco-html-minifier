@@ -142,6 +142,9 @@
     <Reference Include="MiniProfiler, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
       <HintPath>..\MissingCode.Umbraco.HtmlMinifier\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
     </Reference>
+    <Reference Include="MissingCode.Umbraco.HtmlMinifier, Version=0.9.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MissingCode.Umbraco.HtmlMinifier.0.9.5\lib\MissingCode.Umbraco.HtmlMinifier.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\MissingCode.Umbraco.HtmlMinifier\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
@@ -252,6 +255,18 @@
     <Reference Include="UrlRewritingNet.UrlRewriter, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UrlRewritingNet.2.0.7\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
     </Reference>
+    <Reference Include="WebMarkupMin.AspNet.Common, Version=2.4.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet.Common.2.4.0\lib\net45\WebMarkupMin.AspNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.AspNet4.Common, Version=2.4.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet4.Common.2.4.0\lib\net40\WebMarkupMin.AspNet4.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.AspNet4.Mvc, Version=2.4.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet4.Mvc.2.4.0\lib\net40\WebMarkupMin.AspNet4.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMarkupMin.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.Core.2.4.0\lib\net45\WebMarkupMin.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -333,12 +348,6 @@
   <ItemGroup>
     <Analyzer Include="..\MissingCode.Umbraco.HtmlMinifier\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\MissingCode.Umbraco.HtmlMinifier\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MissingCode.Umbraco.HtmlMinifier\MissingCode.Umbraco.HtmlMinifier.csproj">
-      <Project>{98e5e500-99a4-4e99-9695-813b6e969089}</Project>
-      <Name>MissingCode.Umbraco.HtmlMinifier</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
