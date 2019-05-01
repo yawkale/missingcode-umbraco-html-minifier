@@ -5,8 +5,7 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissingCode.Umbraco.HtmlMinifier", "MissingCode.Umbraco.HtmlMinifier\MissingCode.Umbraco.HtmlMinifier.csproj", "{98E5E500-99A4-4E99-9695-813B6E969089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlMinifier.Webv8", "HtmlMinifier.Webv8\HtmlMinifier.Webv8.csproj", "{84B7ABBC-D087-4442-B208-47EC5EAF064D}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
